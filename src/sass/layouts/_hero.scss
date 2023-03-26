@@ -1,0 +1,469 @@
+// === Mixins === //
+
+@mixin font-line($size, $height) {
+  font-size: $size;
+  line-height: calc($height/$size);
+}
+
+// === HERO section === //
+
+.hero {
+  position: relative;
+  padding-top: 60px;
+
+  background-color: $brand-main-color;
+  color: $text-light-color;
+
+  height: 452px;
+}
+
+.hero__title {
+  animation-delay: 800ms;
+  margin-bottom: 32px;
+
+  font-family: 'Seymour One';
+  font-style: normal;
+  font-weight: 400;
+
+  @include font-line(26px, 33px);
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 767px) {
+    max-width: 247px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    width: 181px;
+    height: 74px;
+
+    @include font-line(18px, 23px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 28px;
+
+    width: 367px;
+    height: 144px;
+
+    @include font-line(38px, 47.76px);
+  }
+}
+.hero__title-span {
+  @include font-line(34px, 33px);
+
+  @media screen and (min-width: 768px) {
+    @include font-line(24px, 13px);
+  }
+  @media screen and (min-width: 1200px) {
+    @include font-line(38px, 47.76px);
+  }
+}
+
+.hero__list {
+  display: flex;
+  gap: 18px;
+}
+
+.hero__list-item--bordered {
+  width: 62px;
+  height: 24px;
+
+  font-weight: 600;
+  font-size: 8px;
+  text-align: center;
+}
+
+.hero__link--bordered {
+  outline: transparent;
+  display: inline-block;
+  width: 100%;
+
+  border: 2px solid $brand-second-color;
+  border-radius: 8px;
+
+  color: $text-dark-color;
+  text-decoration: none;
+
+  line-height: 20px;
+  vertical-align: middle;
+
+  &:focus,
+  &:hover {
+    border-color: $focus-color;
+  }
+  &:focus {
+    color: $text-light-color;
+  }
+  &:disabled {
+    border-color: $disabled-color;
+  }
+}
+
+.hero__list-item--unbordered {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__link--unbordered {
+  @include font-line(8px, 10px);
+
+  color: $brand-second-color;
+
+  &:hover {
+    color: $focus-color;
+  }
+  &:focus {
+    color: $text-light-color;
+  }
+
+  &:disabled {
+    color: $disabled-color;
+  }
+}
+
+// === large-ice-cream-container === //
+
+.hero__major-box {
+  z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  left: 27%;
+}
+
+.hero__smile {
+  position: absolute;
+
+  &--orange {
+    animation-delay: 1000ms;
+
+    width: 69px;
+    height: 62px;
+
+    top: 47px;
+    left: 25px;
+
+    @media screen and (min-width: 768px) {
+      width: 101px;
+      left: 35px;
+      height: 106px;
+      top: 70px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 176px;
+      top: 127px;
+      height: 180px;
+      left: 78px;
+    }
+  }
+
+  &--green {
+    animation-delay: 1200ms;
+    height: 76px;
+    width: 78px;
+
+    top: 3px;
+    right: 6px;
+
+    @media screen and (min-width: 768px) {
+      width: 140px;
+      top: -4px;
+      height: 138px;
+      right: 11px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 220px;
+      height: 214px;
+      right: 22px;
+      top: 15px;
+    }
+  }
+
+  &--pink {
+    animation-delay: 1500ms;
+    width: 78px;
+    height: 76px;
+
+    top: 75px;
+    right: -4px;
+
+    @media screen and (min-width: 768px) {
+      width: 139px;
+      height: 141px;
+      top: 110px;
+      right: -2px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 220px;
+      top: 209px;
+      height: 214px;
+      right: -2px;
+    }
+  }
+}
+
+// === hero-mobile-only === //
+
+@media screen and (max-width: 767px) {
+  .hero {
+    background-image: url(../images/header-hero/dottes-mobile.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header-hero/dottes-mobile2x.png);
+
+      background-position: right bottom;
+    }
+  }
+
+  .hero__store,
+  .hero__minor-box {
+    display: none;
+  }
+}
+
+// === hero-taletb === //
+
+@media screen and (min-width: 768px) {
+  .hero {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    background-image: url(../images/header-hero/dottes-tablet.png);
+    height: 350px;
+    padding-top: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header-hero/dottes-tablet2x.png);
+    }
+  }
+
+  .hero__list {
+    margin-bottom: 28px;
+  }
+
+  .hero__minor-box {
+    display: flex;
+
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .hero__text-box {
+    padding-top: 25px;
+  }
+
+  .hero__minor-picture {
+    margin-right: 33px;
+  }
+
+  .hero__arrow-link {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    fill: $text-light-color;
+
+    &:hover {
+      .hero__arrow-default {
+        opacity: 0;
+      }
+      .hero__Arrow-hover {
+        opacity: 1;
+      }
+    }
+    &:focus {
+      .hero__arrow-default {
+        opacity: 0;
+      }
+      .hero__Arrow-focus {
+        opacity: 1;
+      }
+      .hero__Arrow-hover {
+        opacity: 0;
+      }
+    }
+  }
+  .hero__arrow-default {
+    position: absolute;
+  }
+  .hero__Arrow-hover {
+    position: absolute;
+    opacity: 0;
+  }
+  .hero__Arrow-focus {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .hero__text {
+    width: 151px;
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+
+    color: $text-light-color;
+  }
+
+  .hero__store-count {
+    border-bottom: 4px;
+
+    font-weight: 900;
+    @include font-line(28px, 34px);
+
+    color: $text-dark-color;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .hero__store-type {
+    @include font-line(8px, 10px);
+    text-align: right;
+  }
+
+  .hero__major-box {
+    z-index: 1;
+    left: 53%;
+  }
+}
+
+// === hero-desktop === //
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    background-image: url(../images/header-hero/dottes-desktop.png);
+    height: 591px;
+
+    background-size: 1200px;
+    background-position: bottom center;
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header-hero/dottes-desktop2x.png);
+    }
+  }
+
+  .hero__list {
+    margin-bottom: 42px;
+    gap: 34px;
+  }
+
+  .hero__list-item--bordered {
+    width: 134px;
+    height: 42px;
+  }
+
+  .hero__link--bordered {
+    line-height: 38px;
+
+    font-size: 14px;
+  }
+
+  .hero__link--unbordered {
+    font-weight: 600;
+    @include font-line(14px, 17px);
+  }
+
+  .hero__minor-picture {
+    margin-right: 14px;
+  }
+
+  .hero__text {
+    width: 200px;
+    margin-bottom: 32px;
+
+    font-size: 14px;
+  }
+
+  .hero__text-box {
+    padding-top: 70px;
+  }
+
+  .hero__store-count {
+    @include font-line(46px, 56px);
+
+    color: $text-dark-color;
+  }
+
+  .hero__store-type {
+    @include font-line(14px, 17px);
+  }
+}
+
+.hero__shadow {
+  animation-name: scale;
+  animation-duration: 3000ms;
+
+  @keyframes scale {
+    0% {
+      transform: scalex(40%);
+    }
+    100% {
+      transform: scaley(100%);
+    }
+  }
+
+  z-index: -1;
+  position: absolute;
+  width: 260px;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: -20%;
+  background-image: url(../images/header-hero/Ice-scream-shadow-mobile.png);
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../images/header-hero/Ice-scream-shadow-mobile2x.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header-hero/Ice-scream-shadow-tablet.png);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: l
+        url(../images/header-hero/Ice-scream-shadow-tablet2x.png);
+    }
+    width: 380px;
+    height: 380px;
+    left: -20%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-image: url(../images/header-hero/Ice-scream-shadow-desktop.png);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header-hero/Ice-scream-shadow-desktop2x.png);
+    }
+    width: 700px;
+    height: 680px;
+    left: -28%;
+  }
+}

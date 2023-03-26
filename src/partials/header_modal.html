@@ -1,0 +1,56 @@
+    <div class="modal modal__buy" data-modal="1">
+            <button class="modal-btn-close js-modal-close" type="button">
+            <svg class="modal-svg--sm " width="9" height="9">
+                <use href="./images/icons/icons.svg#menu-close">
+                </use>
+            </svg>
+            <svg class="modal-svg--big" width="11" height="11">
+                <use href="./images/icons/icons.svg#menu-close"></use>
+            </svg>
+        </button>
+        
+            <strong class="modal-title__buy">Buy now</strong>
+
+<form class="modal-form__byu" name="register-form" autocomplete="on">
+            
+    <ul class="modal-list__buy">
+    <li class="modal-item">
+        <input class="label-check__buy" type="checkbox" id="icecream">
+        <label class="modal-item__buy elipse_green" for="icecream">
+        <strong class="modal-name__buy">ice cream</strong>
+        </label>
+    </li>
+    <li class="modal-item">
+        <input class="label-check__buy" type="checkbox" id="icecoffee">
+        <label class="modal-item__buy elipse_yelow" for="icecoffee">
+        <strong class="modal-name__buy">ice coffee</strong>
+        </label>
+    </li>
+    <li class="modal-item">
+        <input class="label-check__buy" type="checkbox" id="milkshake">
+        <label class="modal-item__buy elipse_mocco " for="milkshake">
+            <strong class="modal-name__buy">milkshake</strong>
+        </label>
+    </li>         
+    </ul>
+            <div class="register-form-group__buy" role="group">
+                <label class="label__buy">
+                <input class="register-form-input__buy"
+                 type="text" name="username" 
+                 placeholder="Name" 
+                 required pattern="^[a-zA-Z\s]+$" minlength="3">
+                </label>
+                <label class="label__buy">
+                <input class="register-form-input__buy" 
+                type="tel" 
+                name="username" placeholder="Phone"  
+                required pattern="^[0-9]+$" 
+    maxlength="13">
+                </label>
+            <textarea class="register-form-message__buy" name="comment" rows="3" placeholder="Comment"></textarea>
+            </div>                
+            <button class="btn btn--modal" type="submit">Submit</button>
+        </form>
+    </div>
+    
+<div class="overlay js-overlay-modal"></div>
